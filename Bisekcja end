@@ -1,0 +1,98 @@
+#include <iostream>
+#include<conio.h>
+#include <math.h>
+#include<cmath>
+using namespace std;
+double f(double x){
+	return x*x + 2 * x - 3;
+}
+double f2(double x){
+
+	return (1 + cos(x)) / (3 - sin(x)) - 0.5;
+}
+
+double f3(double x){
+
+	return (exp(x) - 2);
+}
+int main(){
+	double a, b, c,
+		eps = 0.01;
+	int w, licznik = 0;
+	char end;
+	end = 'n';
+	while (end != 't'){
+		cout << "Podaj a: " << endl;
+		cin >> a;
+		cout << "Podaj b: " << endl;
+		cin >> b;
+		cout << "Wybur funkcij: " << endl;
+		cin >> w;
+		switch (w){
+
+
+		case 1:
+			licznik = 0;
+			while ((b - a) > 2 * eps){
+				c = (a + b) / 2;
+				if (f(c) == 0){
+					break;
+				}
+				if (f(a)*f(c) < 0){
+					b = c;
+				}
+				else
+					a = c;
+
+
+				licznik++;
+
+			}
+			break;
+		case 2: 
+			licznik = 0;
+			while ((b - a) > 2 * eps){
+				c = (a + b) / 2;
+				if (f2(c) == 0){
+					break;
+				}
+				if (f2(a)*f2(c) < 0){
+					b = c;
+				}
+				else
+					a = c;
+
+
+				licznik++;
+
+			}
+			break;
+		case 3:
+			licznik = 0;
+			while ((b - a) > 2 * eps){
+				c = (a + b) / 2;
+				if (f3(c) == 0){
+					break;
+				}
+				if (f3(a)*f3(c) < 0){
+					b = c;
+				}
+				else
+					a = c;
+
+
+				licznik++;
+
+			}
+			break;
+		}
+		cout << "x= " << c;
+		cout << endl;
+		cout << "Iloscz iteracij: " << licznik << endl;
+		cout << endl;
+		cout << "czy zakonczyc program? ";
+		cin >> end;
+	}
+	_getch();
+	return 0;
+}
