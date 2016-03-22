@@ -2,6 +2,7 @@
 #include<conio.h>
 #include <math.h>
 #include<cmath>
+//#include "gnuplot_i.hpp"
 using namespace std;
 double f(double x){
 	return x*x + 2 * x - 3;
@@ -16,18 +17,32 @@ double f3(double x){
 	return (exp(x) - 2);
 }
 int main(){
+	//Gnuplot main_plot;
+	//Gnuplot g1("line");
+	//g1.reset_plot();
+	//cout << "y = sin(x)" << endl;
+	//g1.plot_equation("sin(x)", "sine");
+
+	//cout << "(1 + cos(x)) / (3 - sin(x)) - 0.5" << endl;
+	//g1.plot_equation("(1 + cos(x)) / (3 - sin(x)) - 0.5", "sine product");
+
+
+
 	double a, b, c,
-		eps = 0.01;
+		eps;
 	int w, licznik = 0;
 	char end;
 	end = 'n';
 	while (end != 't'){
+		cout << "Wybur funkcij: " << endl;
+		cin >> w;
 		cout << "Podaj a: " << endl;
 		cin >> a;
 		cout << "Podaj b: " << endl;
 		cin >> b;
-		cout << "Wybur funkcij: " << endl;
-		cin >> w;
+		cout << "Dokladnosc epsilon: " << endl;
+		cin >> eps;
+	
 		switch (w){
 
 
