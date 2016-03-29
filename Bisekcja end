@@ -2,11 +2,16 @@
 #include<conio.h>
 #include <math.h>
 #include<cmath>
-//#include "gnuplot_i.hpp"
+#include "gnuplot_i.hpp"
+#define GNUPLOT_PATH "C:\\Users\\Kirill\\Documents\\Visual Studio 2013\\Projects\\bisekcja\\bisekcja\\gnuplot\\bin" 
+
 using namespace std;
+
 double f(double x){
+
 	return x*x + 2 * x - 3;
 }
+
 double f2(double x){
 
 	return (1 + cos(x)) / (3 - sin(x)) - 0.5;
@@ -16,37 +21,37 @@ double f3(double x){
 
 	return (exp(x) - 2);
 }
+
 int main(){
-	//Gnuplot main_plot;
-	//Gnuplot g1("line");
-	//g1.reset_plot();
-	//cout << "y = sin(x)" << endl;
-	//g1.plot_equation("sin(x)", "sine");
-
-	//cout << "(1 + cos(x)) / (3 - sin(x)) - 0.5" << endl;
-	//g1.plot_equation("(1 + cos(x)) / (3 - sin(x)) - 0.5", "sine product");
-
-
-
+	
 	double a, b, c,
 		eps;
 	int w, licznik = 0;
 	char end;
 	end = 'n';
 	while (end != 't'){
+
+		cout <<"1 - Funkcja Wykladnicza"<< endl;
+		cout<< "2 - Trygonometryczna"<< endl;
+		cout<< "3 - Welomian "<< endl;
+
+		cout << endl;
 		cout << "Wybur funkcij: " << endl;
 		cin >> w;
-		cout << "Podaj a: " << endl;
-		cin >> a;
-		cout << "Podaj b: " << endl;
-		cin >> b;
-		cout << "Dokladnosc epsilon: " << endl;
-		cin >> eps;
-	
+		cout<< "Podaj przedzial szukania min (a < b) "<< endl;
+		cout << endl;
 		switch (w){
 
 
 		case 1:
+			cout << "f(x) = x*x + 2 * x - 3 " << endl;
+			cout << endl;
+			cout << "Podaj a: " << endl;
+			cin >> a;
+			cout << "Podaj b: " << endl;
+			cin >> b;
+			cout << "Dokladnosc epsilon: " << endl;
+			cin >> eps;
 			licznik = 0;
 			while ((b - a) > 2 * eps){
 				c = (a + b) / 2;
@@ -61,10 +66,18 @@ int main(){
 
 
 				licznik++;
-
+				cout << "X: " << c << endl;
 			}
 			break;
 		case 2: 
+			cout << "f(x) = (1 + cos(x)) / (3 - sin(x)) - 0.5 " << endl;
+			cout << endl;
+			cout << "Podaj a: " << endl;
+			cin >> a;
+			cout << "Podaj b: " << endl;
+			cin >> b;
+			cout << "Dokladnosc epsilon: " << endl;
+			cin >> eps;
 			licznik = 0;
 			while ((b - a) > 2 * eps){
 				c = (a + b) / 2;
@@ -77,12 +90,20 @@ int main(){
 				else
 					a = c;
 
-
+				cout << "X: " << c << endl;
 				licznik++;
 
 			}
 			break;
 		case 3:
+			cout << "f(x) = (exp(x) - 2) " << endl;
+			cout << endl;
+			cout << "Podaj a: " << endl;
+			cin >> a;
+			cout << "Podaj b: " << endl;
+			cin >> b;
+			cout << "Dokladnosc epsilon: " << endl;
+			cin >> eps;
 			licznik = 0;
 			while ((b - a) > 2 * eps){
 				c = (a + b) / 2;
@@ -95,12 +116,13 @@ int main(){
 				else
 					a = c;
 
-
+				cout << "X: " << c << endl;
 				licznik++;
 
 			}
 			break;
 		}
+		cout << "-----------------------------" << endl;
 		cout << "x= " << c;
 		cout << endl;
 		cout << "Iloscz iteracij: " << licznik << endl;
